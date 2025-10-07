@@ -1084,10 +1084,16 @@ export default class Gantt {
                         return;
                     }
 
+                    // Find bars by original index, not visible index
+                    const from_bar = this.bars[dependency._original_index];
+                    const to_bar = this.bars[task._original_index];
+
+                    if (!from_bar || !to_bar) return;
+
                     const arrow = new Arrow(
                         this,
-                        this.bars[dependency._index], // from_task
-                        this.bars[task._index], // to_task
+                        from_bar, // from_task
+                        to_bar, // to_task
                     );
                     this.layers.arrow.appendChild(arrow.element);
                     return arrow;
