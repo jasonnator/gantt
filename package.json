@@ -3,6 +3,7 @@
     "version": "1.0.3",
     "description": "A simple, modern, interactive gantt library for the web",
     "main": "src/index.js",
+    "module": "src/index.js",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -23,10 +24,10 @@
     ],
     "exports": {
         ".": {
-            "require": "./dist/frappe-gantt.umd.js",
-            "import": "./dist/frappe-gantt.es.js",
-            "style": "./dist/frappe-gantt.css"
-        }
+            "import": "./src/index.js",
+            "require": "./dist/frappe-gantt.umd.js"
+        },
+        "./dist/*.css": "./dist/*.css"
     },
     "keywords": [
         "gantt",
